@@ -625,60 +625,72 @@ h2 Examples
             .-text Tab 2 content
           .chi-tabs-panel#portal-horizontal-bordered-3(role="tabpanel")
             .-text Tab 3 content
-    .example-tabs.-pl--2
-      ul.chi-tabs#example-portal-bordered(role="tabpanel")
-        li.-disabled
-          a(
-            href=`#webcomponent-portal-bordered`
-            role="tab"
-            aria-selected="false"
-            tabindex="-1"
-            aria-controls="webcomponent-portal-bordered"
-            ) Web Component
-        li.-active
-          a(
-            href=`#html-portal-bordered`
-            role="tab"
-            aria-selected="true"
-            aria-controls="html-portal-bordered"
-            ) HTML Blueprint
-    .chi-tabs-panel#webcomponent-portal-bordered(role="tabpanel")
-    .chi-tabs-panel.-active#html-portal-bordered(role="tabpanel")
-      .chi-tab__description
-        span.-text--grey
-          | This HTML Blueprint requires JavaScript.
-          | You may use your own solution, or use Chi's vanilla JavaScript solution,
-          | <a href="../../getting-started/installation">Chi.js</a>.
-      :code(lang='html')
-        <ul class="chi-tabs -border" id="example-horizontal-bordered" role="tablist" aria-label="chi-tabs-horizontal">
-          <li class="-active">
-            <a
-              href="#horizontal-bordered-1"
-              role="tab"
-              aria-selected="true"
-              aria-controls="horizontal-bordered-1">Active Tab</a>
-          </li>
-          <li role="tab">
-            <a
-              href="#horizontal-bordered-2"
-              aria-selected="false"
-              tabindex="-1"
-              aria-controls="horizontal-bordered-2">Tab Link</a>
-          </li>
-          <li role="tab">
-            <a
-              href="#horizontal-bordered-3"
-              aria-selected="false"
-              tabindex="-1"
-              aria-controls="horizontal-bordered-3">Tab Link</a>
-          </li>
-        </ul>
+    .example
+      .example-tabs.-pl--2
+        ul.chi-tabs#example-tabs-portal-bordered
+          li.-active
+            a(href=`#webcomponent-portal-bordered`) Web Component
+          li
+            a(href=`#html-portal-bordered`) HTML Blueprint
+      .chi-tabs-panel.-active#webcomponent-portal-bordered(role="tabpanel")
+        :code(lang='html')
+          <chi-tabs active-tab="tab-a" id="example-horizontal-bordered" border></chi-tabs>
 
-        <div class="chi-tabs-panel -active" id="horizontal-bordered-1" role="tabpanel">Tab 1 content</div>
-        <div class="chi-tabs-panel" id="horizontal-bordered-2" role="tabpanel">Tab 2 content</div>
-        <div class="chi-tabs-panel" id="horizontal-bordered-3" role="tabpanel">Tab 3 content</div>
+          <script>
+            const tabElement = document.querySelector('#example-horizontal-bordered');
+            if (tabElement) {
+              tabElement.tabs = [
+                {
+                  label: 'Active tab',
+                  id: 'tab-a',
+                },
+                {
+                  label: 'Tab Link',
+                  id: 'tab-b'
+                },
+                {
+                  label: 'Tab Link',
+                  id: 'tab-c'
+                },
+              ];
+            }
+          </script>
+      .chi-tabs-panel#html-portal-bordered(role="tabpanel")
+        .chi-tab__description
+          span.-text--grey
+              | This HTML Blueprint requires JavaScript.
+              | You may use your own solution, or use Chi's vanilla JavaScript solution,
+              | <a href="../../getting-started/installation">Chi.js</a>.
+          :code(lang='html')
+            <ul class="chi-tabs -border" id="example-horizontal-bordered" role="tablist" aria-label="chi-tabs-horizontal">
+              <li class="-active">
+                <a
+                  href="#horizontal-bordered-1"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="horizontal-bordered-1">Active Tab</a>
+              </li>
+              <li role="tab">
+                <a
+                  href="#horizontal-bordered-2"
+                  aria-selected="false"
+                  tabindex="-1"
+                  aria-controls="horizontal-bordered-2">Tab Link</a>
+              </li>
+              <li role="tab">
+                <a
+                  href="#horizontal-bordered-3"
+                  aria-selected="false"
+                  tabindex="-1"
+                  aria-controls="horizontal-bordered-3">Tab Link</a>
+              </li>
+            </ul>
 
-        <script>chi.tab(document.getElementById('example-horizontal-bordered'));</script>
+            <div class="chi-tabs-panel -active" id="horizontal-bordered-1" role="tabpanel">Tab 1 content</div>
+            <div class="chi-tabs-panel" id="horizontal-bordered-2" role="tabpanel">Tab 2 content</div>
+            <div class="chi-tabs-panel" id="horizontal-bordered-3" role="tabpanel">Tab 3 content</div>
+
+            <script>chi.tab(document.getElementById('example-horizontal-bordered'));</script>
 
   h4 Solid
   .example.-mb--3
@@ -718,23 +730,44 @@ h2 Examples
             .-text Tab 3 content
     .example-tabs.-pl--2
       ul.chi-tabs#example-portal-solid-bordered(role="tabpanel")
-        li.-disabled
+        li.-active
           a(
             href=`#webcomponent-portal-solid-bordered`
             role="tab"
-            aria-selected="false"
-            tabindex="-1"
+            aria-selected="true"
             aria-controls="webcomponent-portal-solid-bordered"
             ) Web Component
-        li.-active
+        li
           a(
             href=`#html-portal-solid-bordered`
             role="tab"
             aria-selected="true"
             aria-controls="html-portal-solid-bordered"
             ) HTML Blueprint
-    .chi-tabs-panel#webcomponent-portal-solid-bordered(role="tabpanel")
-    .chi-tabs-panel.-active#html-portal-solid-bordered(role="tabpanel")
+    .chi-tabs-panel.-active#webcomponent-portal-solid-bordered(role="tabpanel")
+     :code(lang='html')
+          <chi-tabs active-tab="tab-a" id="example-horizontal-solid-bordered" solid border></chi-tabs>
+
+          <script>
+            const tabElement = document.querySelector('#example-horizontal-solid-bordered');
+            if (tabElement) {
+              tabElement.tabs = [
+                {
+                  label: 'Active tab',
+                  id: 'tab-a',
+                },
+                {
+                  label: 'Tab Link',
+                  id: 'tab-b'
+                },
+                {
+                  label: 'Tab Link',
+                  id: 'tab-c'
+                },
+              ];
+            }
+          </script>
+    .chi-tabs-panel#html-portal-solid-bordered(role="tabpanel")
       .chi-tab__description
         span.-text--grey
           | This HTML Blueprint requires JavaScript.
@@ -806,22 +839,43 @@ h2 Examples
           .chi-tabs-panel#portal-vertical-flat-3(role="tabpanel")
             .-text Tab 3 content
     .example-tabs.-pl--2
-      ul.chi-tabs#example-portal-vertical-flat(role="tablist" aria-label="vertical-portal-flat-code-snippet")
-        li.-disabled
+      ul.chi-tabs#example-portal-vertical-flat-snippet(role="tablist" aria-label="vertical-portal-flat-code-snippet")
+        li.-active
           a(
             href=`#webcomponent-portal-vertical-flat`
             role="tab"
-            aria-selected="false"
-            tabindex="-1"
+            aria-selected="true"
             aria-controls="webcomponent-portal-vertical-flat") Web Component
-        li.-active
+        li
           a(
             href=`#html-portal-vertical-flat`
             role="tab"
-            aria-selected="true"
+            aria-selected="false"
             aria-controls="html-portal-vertical-flat") HTML Blueprint
-    .chi-tabs-panel#webcomponent-portal-vertical-flat(role="tabpanel")
-    .chi-tabs-panel.-active#html-portal-vertical-flat(role="tabpanel")
+    .chi-tabs-panel.-active#webcomponent-portal-vertical-flat(role="tabpanel")
+      :code(lang='html')
+            <chi-tabs active-tab="tab-a" id="example-portal-vertical-flat" vertical></chi-tabs>
+              
+            <script>
+              const tabElement = document.querySelector('#example-portal-vertical-flat');
+              if (tabElement) {
+                tabElement.tabs = [
+                  {
+                    label: 'Active tab',
+                    id: 'tab-a',
+                  },
+                  {
+                    label: 'Tab Link',
+                    id: 'tab-b'
+                  },
+                  {
+                    label: 'Tab Link',
+                    id: 'tab-c'
+                  },
+                ];
+              }
+            </script>
+    .chi-tabs-panel#html-portal-vertical-flat(role="tabpanel")
       .chi-tab__description
         span.-text--grey
           | This HTML Blueprint requires JavaScript.
@@ -900,22 +954,43 @@ h2 Examples
           .chi-tabs-panel#portal-vertical-solid-3(role="tabpanel")
             .-text Tab 3 content
     .example-tabs.-pl--2
-      ul.chi-tabs#example-portal-vertical(role="tablist" aria-label="vertical-portal-solid-code-snippet")
-        li.-disabled
+      ul.chi-tabs#example-portal-vertical-solid-snippet(role="tablist" aria-label="vertical-portal-solid-code-snippet")
+        li.-active
           a(
             href=`#webcomponent-portal-vertical`
             role="tab"
-            aria-selected="false"
-            tabindex="-1"
+            aria-selected="true"
             aria-controls="webcomponent-portal-vertical") Web Component
-        li.-active
+        li
           a(
             href=`#html-portal-vertical`
             role="tab"
-            aria-selected="true"
+            aria-selected="false"
             aria-controls="html-portal-vertical") HTML Blueprint
-    .chi-tabs-panel#webcomponent-portal-vertical(role="tabpanel")
-    .chi-tabs-panel.-active#html-portal-vertical(role="tabpanel")
+    .chi-tabs-panel.-active#webcomponent-portal-vertical(role="tabpanel")
+      :code(lang='html')
+        <chi-tabs active-tab="tab-a" id="example-portal-vertical-solid" vertical solid></chi-tabs>
+          
+        <script>
+          const tabElement = document.querySelector('#example-portal-vertical-solid');
+          if (tabElement) {
+            tabElement.tabs = [
+              {
+                label: 'Active tab',
+                id: 'tab-a',
+              },
+              {
+                label: 'Tab Link',
+                id: 'tab-b'
+              },
+              {
+                label: 'Tab Link',
+                id: 'tab-c'
+              },
+            ];
+          }
+        </script>
+    .chi-tabs-panel#html-portal-vertical(role="tabpanel")
       .chi-tab__description
         span.-text--grey
           | This HTML Blueprint requires JavaScript.
@@ -2592,6 +2667,8 @@ script.
       chi.tab(document.getElementById('example-target-link'));
       chi.tab(document.getElementById('example-tabs-tabbed-navigation'));
       chi.tab(document.getElementById('example-tabs-solid-tabbed-navigation'));
+      chi.tab(document.getElementById('example-tabs-portal-bordered'));
+      chi.tab(document.getElementById('example-portal-solid-bordered'));
       chi.tab(document.getElementById('example-nav-contained'));
       chi.tab(document.getElementById('example-horizontal-base'));
       chi.tab(document.getElementById('example-portal-horizontal-bordered'));
@@ -2599,7 +2676,9 @@ script.
       chi.tab(document.getElementById('example-horizontal-solid-bordered'));
       chi.tab(document.getElementById('example-horizontal-inverse'));
       chi.tab(document.getElementById('example-portal-vertical-solid'));
+      chi.tab(document.getElementById('example-portal-vertical-solid-snippet'));
       chi.tab(document.getElementById('example-portal-vertical-flat'));
+      chi.tab(document.getElementById('example-portal-vertical-flat-snippet'));
       chi.tab(document.getElementById('example-vertical-solid'));
       chi.tab(document.getElementById('example-vertical-base'));
       chi.tab(document.getElementById('example-vertical-inverse'));
